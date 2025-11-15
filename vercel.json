@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
@@ -6,5 +7,8 @@
     "api/*.ts": {
       "runtime": "nodejs18.x"
     }
-  }
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1.ts" }
+  ]
 }
