@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "@google/genai";
 import type { ProductivityLog } from "../types";
 
 export const config = {
@@ -33,6 +33,8 @@ export default async function handler(request: Request): Promise<Response> {
 
   try {
     const data: ProductivityLog[] = await request.json();
+    
+    // This is the correct way to instantiate using the SDK:
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
